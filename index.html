@@ -52,7 +52,7 @@
         </section>
     </div>
 
-   <footer class="footer">
+  <footer class="footer">
     <ul class="menu">
         <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
         <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
@@ -61,11 +61,35 @@
         <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
     </ul>
     <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+
+    <!-- Wave animation elements -->
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
 </footer>
 
+<script type="text/javascript">
+    // Animation for the waves
+    @keyframes animateWaves {
+        0% {
+            background-position-x: 1000px;
+        }
+        100% {
+            background-position-x: 0px;
+        }
+    }
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    @keyframes animate {
+        0% {
+            background-position-x: -1000px;
+        }
+        100% {
+            background-position-x: 0px;
+        }
+    }
+</script>
+
 </body>
 
 </html>
