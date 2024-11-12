@@ -7,51 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Juros Simples e Juros Compostos</h1>
-        <p>Entenda as diferenças e os conceitos principais sobre os dois tipos de juros mais usados em finanças.</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Juros Simples e Juros Compostos</h1>
+            <p>Entenda as diferenças e os conceitos principais sobre os dois tipos de juros mais usados em finanças.</p>
+        </header>
 
-    <section class="content">
-        <h2>O que são Juros?</h2>
-        <p>Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Basicamente, é o valor pago ou recebido a mais pelo uso de um capital durante um período de tempo. Eles são expressos em porcentagem, e existem dois tipos principais: os <strong>juros simples</strong> e os <strong>juros compostos</strong>.</p>
+        <section class="content">
+            <h2>O que são Juros?</h2>
+            <p>Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Basicamente, é o valor pago ou recebido a mais pelo uso de um capital durante um período de tempo. Eles são expressos em porcentagem, e existem dois tipos principais: os <strong>juros simples</strong> e os <strong>juros compostos</strong>.</p>
 
-        <h2>Juros Simples</h2>
-        <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
-        <p>Fórmula dos Juros Simples:</p>
-        <p><code>J = P × i × t</code></p>
-        <p>Onde:
+            <h2>Juros Simples</h2>
+            <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
+            <p>Fórmula dos Juros Simples:</p>
+            <p><code>J = P × i × t</code></p>
+            <p>Onde:
+                <ul>
+                    <li><strong>J</strong> é o valor dos juros;</li>
+                    <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                    <li><strong>i</strong> é a taxa de juros por período;</li>
+                    <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+                </ul>
+            </p>
+
+            <h2>Juros Compostos</h2>
+            <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
+            <p>Fórmula dos Juros Compostos:</p>
+            <p><code>M = P × (1 + i)<sup>t</sup></code></p>
+            <p>Onde:
+                <ul>
+                    <li><strong>M</strong> é o montante final (principal + juros);</li>
+                    <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                    <li><strong>i</strong> é a taxa de juros por período;</li>
+                    <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+                </ul>
+            </p>
+
+            <h2>Diferenças Principais</h2>
             <ul>
-                <li><strong>J</strong> é o valor dos juros;</li>
-                <li><strong>P</strong> é o valor principal (capital inicial);</li>
-                <li><strong>i</strong> é a taxa de juros por período;</li>
-                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+                <li>Nos <strong>juros simples</strong>, os juros são calculados sempre sobre o valor inicial.</li>
+                <li>Nos <strong>juros compostos</strong>, os juros são calculados sobre o valor inicial mais os juros acumulados ao longo do tempo.</li>
+                <li>Os juros compostos resultam em um crescimento mais rápido do montante final.</li>
             </ul>
-        </p>
-
-        <h2>Juros Compostos</h2>
-        <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
-        <p>Fórmula dos Juros Compostos:</p>
-        <p><code>M = P × (1 + i)<sup>t</sup></code></p>
-        <p>Onde:
-            <ul>
-                <li><strong>M</strong> é o montante final (principal + juros);</li>
-                <li><strong>P</strong> é o valor principal (capital inicial);</li>
-                <li><strong>i</strong> é a taxa de juros por período;</li>
-                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
-            </ul>
-        </p>
-
-        <h2>Diferenças Principais</h2>
-        <ul>
-            <li>Nos <strong>juros simples</strong>, os juros são calculados sempre sobre o valor inicial.</li>
-            <li>Nos <strong>juros compostos</strong>, os juros são calculados sobre o valor inicial mais os juros acumulados ao longo do tempo.</li>
-            <li>Os juros compostos resultam em um crescimento mais rápido do montante final.</li>
-        </ul>
-    </section>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2024</p>
+        <p>&copy; 2024 - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>
