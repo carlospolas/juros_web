@@ -19,7 +19,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    opacity: 0;
+    opacity: 1;
     animation: fadeIn 1s ease-out forwards; /* Fade-in the content */
 }
 
@@ -34,7 +34,7 @@ header h1 {
     color: #3a3a3a;
     text-transform: uppercase;
     letter-spacing: 2px;
-    opacity: 0;
+    opacity: 1;
     animation: fadeIn 1s ease-out 0.5s forwards; /* Fade-in header */
 }
 
@@ -42,7 +42,7 @@ header h1 {
     font-size: 1.2rem;
     color: #666;
     margin-top: 10px;
-    opacity: 0;
+    opacity: 1;
     animation: fadeIn 1s ease-out 1s forwards; /* Fade-in intro text */
 }
 
@@ -172,7 +172,7 @@ body.menu-open {
 /* Content Sections */
 .content {
     margin-bottom: 50px;
-    opacity: 0;
+    opacity: 1; /* Garantir que o conteúdo seja visível */
     animation: fadeIn 1s ease-out 1.5s forwards; /* Fade-in effect for content */
 }
 
