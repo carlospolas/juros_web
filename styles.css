@@ -1,180 +1,313 @@
-/* Resetting default styles */
+/* General Reset and Smooth Transitions */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: "Poppins", sans-serif; /* Use the Poppins font */
-}
-
-
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
+    line-height: 1.6;
+    transition: background-color 0.5s ease-in-out;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Main container for content */
+/* Fade-in Effect for the Entire Page */
 .container {
-    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; /* Fade-in the content */
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards; /* Fade-in header */
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards; /* Fade-in intro text */
+}
+
+/* Menu */
+.menu {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    gap: 30px;
+    margin: 40px 0;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-section {
-    width: 100%;
-    max-width: 900px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Space from footer */
-}
-
-h1, h2 {
-    color: #333;
-    text-align: center;
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
+.menu__list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
     padding: 0;
 }
 
-ul li {
-    margin: 10px 0;
+.menu__item {
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Footer */
-/* Footer Style */
-.footer {
+.menu__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: block;
+    padding: 20px 40px;
+    border-radius: 25px;
+    background-color: #3498db;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
     position: relative;
-    width: 100%;
-    background-color: #3586ff; /* Blue background */
-    color: white;
-    text-align: center;
-    padding: 40px 50px;
     overflow: hidden;
 }
 
-.footer p {
-    margin-top: 10px;
-    font-size: 1rem;
+/* Hover Effects for Menu */
+.menu__link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Waves Animation */
+.menu__link:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px) scale(1.1);  /* Slight scaling and movement */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu__link:hover::after {
+    width: 400%;
+    height: 400%;
+    top: -50%;
+    left: -50%;
+}
+
+/* Active click effect */
+.menu__link:active {
+    transform: scale(0.95); /* Slight scale-down effect when clicked */
+}
+
+/* Content Sections */
+.content {
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards; /* Fade-in effect for content */
+}
+
+.content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.content code {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+.content ul li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Smooth Scroll Animation for Content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+footer .menu {
+    margin-top: 20px;
+}
+
+footer .menu__item a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .menu__item a:hover {
+    color: #f39c12;
+    transform: translateY(-3px);
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #bbb;
+}
+
+/* Wave Animation in Footer */
 .wave {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Height of the waves */
-    background: url("https://i.ibb.co/wQZVxxk/wave.png") repeat-x;
-    background-size: 1000px 100px;
-    animation: waveAnimation 10s linear infinite;
+    height: 100px;
+    background-image: url('https://cdn.pixabay.com/photo/2017/06/06/21/29/waves-2370504_960_720.png');
+    background-size: cover;
+    animation: waveAnimation 5s infinite linear;
 }
 
-.wave#wave1 {
-    z-index: 1;
-    opacity: 1;
-    animation-duration: 12s;
-}
-
-.wave#wave2 {
-    z-index: 2;
-    opacity: 0.7;
-    animation-duration: 14s;
-    bottom: 10px;
-}
-
-.wave#wave3 {
-    z-index: 3;
-    opacity: 0.5;
-    animation-duration: 16s;
-    bottom: 20px;
-}
-
-.wave#wave4 {
-    z-index: 4;
-    opacity: 0.3;
-    animation-duration: 18s;
-    bottom: 30px;
-}
-
-/* Keyframes for Wave Animation */
+/* Smooth Wave Animation */
 @keyframes waveAnimation {
     0% {
-        background-position-x: 1000px;
+        transform: translateX(0);
     }
     100% {
-        background-position-x: 0px;
+        transform: translateX(-100%);
     }
 }
 
-/* Menu Styling */
-.menu {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.menu__item {
-    list-style: none;
-    margin: 0 15px;
-}
-
-.menu__link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    transition: opacity 0.3s ease;
-}
-
-.menu__link:hover {
-    opacity: 0.8;
-}
-
-/* Styling for smooth scrolling */
+/* Smooth Scroll Effect */
 html {
     scroll-behavior: smooth;
 }
 
-
-@keyframes animateWaves {
-    0% {
-        background-position-x: 1000px;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .menu__list {
+        flex-direction: column;
+        gap: 15px;
     }
-    100% {
-        background-position-x: 0px;
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .menu__link {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+
+    footer {
+        padding: 15px;
     }
 }
 
-@keyframes animate {
-    0% {
-        background-position-x: -1000px;
-    }
-    100% {
-        background-position-x: 0px;
-    }
+/* Styling the formula box */
+.formula-box {
+    background-color: #f0f0f0; /* Light gray background */
+    border: 2px solid #007BFF; /* Blue border */
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    font-size: 1.2em; /* Slightly larger font for better readability */
+    text-align: center;
 }
+
+.formula-box code {
+    display: block;
+    font-size: 1.5em; /* Larger font size for the formula */
+    color: #007BFF; /* Blue color for the code */
+}
+
+/* Optional: Add hover effect to the formula box */
+.formula-box:hover {
+    background-color: #e6f7ff; /* Lighter blue on hover */
+    border-color: #0056b3; /* Darker blue on hover */
+    transition: all 0.3s ease-in-out;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input, button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#juros-simples-resultado strong {
+    font-weight: bold;
+}
+
+#juros-simples-resultado {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#juros-simples-resultado br {
+    margin-bottom: 10px;
+}
+
+

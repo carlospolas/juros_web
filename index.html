@@ -11,22 +11,32 @@
 <body>
     <div class="container">
         <header>
-            <h1>Juros Simples e Juros Compostos</h1>
-            <p>Entenda as diferenças e os conceitos principais sobre os dois tipos de juros mais usados em finanças.</p>
-            
-            <!-- Navigation Menu -->
+            <!-- Main Title -->
+            <h1>Juros</h1>
+
+            <!-- Introduction -->
+            <p class="intro-text">Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Eles podem ser simples ou compostos, e são essenciais para entender como o capital cresce ao longo do tempo.</p>
+
+            <!-- Navigation Menu with boxes (left and right) -->
             <nav class="menu">
-                <ul>
-                    <li class="menu__item"><a class="menu__link" href="#juros-simples">Juros Simples</a></li>
-                    <li class="menu__item"><a class="menu__link" href="#juros-compostos">Juros Compostos</a></li>
+                <ul class="menu__list">
+                    <li class="menu__item left">
+                        <!-- Updated link for Juros Simples -->
+                        <a class="menu__link" href="simples.html">
+                            <div class="menu__box">Juros Simples</div>
+                        </a>
+                    </li>
+                    <li class="menu__item right">
+                        <!-- Updated link for Juros Compostos -->
+                        <a class="menu__link" href="compostos.html">
+                            <div class="menu__box">Juros Compostos</div>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
 
         <section class="content" id="juros-simples">
-            <h2>O que são Juros?</h2>
-            <p>Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Basicamente, é o valor pago ou recebido a mais pelo uso de um capital durante um período de tempo. Eles são expressos em porcentagem, e existem dois tipos principais: os <strong>juros simples</strong> e os <strong>juros compostos</strong>.</p>
-
             <h2>Juros Simples</h2>
             <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
             <p><strong>Fórmula dos Juros Simples:</strong></p>
@@ -57,24 +67,14 @@
 
     <footer class="footer">
         <ul class="menu">
-            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <!-- Changed "Home" to "Início" and linked it to the initial page (index.html) -->
+            <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Serviços</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Equipa
+            </a></li>
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
-
-        <!-- Wave animation elements -->
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
     </footer>
-
-    <script type="text/javascript">
-        // Wave animation JavaScript (If necessary)
-    </script>
-</body>
+    
 
 </html>
