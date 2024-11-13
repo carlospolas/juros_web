@@ -117,6 +117,58 @@ header h1 {
     transform: scale(0.95); /* Slight scale-down effect when clicked */
 }
 
+/* Menu Lateral */
+.side-menu {
+    position: fixed; /* Fixa o menu na tela */
+    top: 0;
+    left: -250px; /* Inicialmente escondido fora da tela */
+    width: 250px;
+    height: 100%;
+    background-color: #3498db;
+    color: white;
+    transition: left 0.3s ease; /* Transição suave ao abrir/fechar */
+    z-index: 1000; /* Garante que o menu fique acima do conteúdo */
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.side-menu.open {
+    left: 0; /* Mostra o menu quando a classe 'open' é adicionada */
+}
+
+.side-menu .close-btn {
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.side-menu .menu-items {
+    margin-top: 50px;
+}
+
+.side-menu .menu-items a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.side-menu .menu-items a:hover {
+    color: #f39c12;
+}
+
+/* Ajuste o resto da página para garantir que o menu lateral não a atrapalhe */
+body.menu-open {
+    overflow: hidden; /* Evita o scroll na página quando o menu está aberto */
+}
+
 /* Content Sections */
 .content {
     margin-bottom: 50px;
