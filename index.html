@@ -58,6 +58,8 @@
         .content-wrapper {
             transition: margin-left 0.3s ease;
             padding: 20px;
+            min-height: 100vh; /* Garantir que o conteúdo ocupe toda a altura da tela */
+            background-color: #ecf0f1;
         }
 
         /* Mostrar o botão de menu apenas em dispositivos móveis */
@@ -65,11 +67,47 @@
             .menu-btn {
                 display: block;
             }
+
+            /* Ajuste do layout quando o menu estiver aberto */
+            .menu-open .content-wrapper {
+                margin-left: 250px; /* Ajuste o conteúdo para a direita quando o menu estiver aberto */
+            }
         }
 
-        /* Ocultar o conteúdo até o menu ser aberto */
-        .menu-open .content-wrapper {
-            margin-left: 250px; /* Ajuste o conteúdo para a direita quando o menu estiver aberto */
+        /* Cabeçalho */
+        header h1 {
+            color: #2c3e50;
+        }
+
+        /* Seção de conteúdo */
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            color: #34495e;
+        }
+
+        section p {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
