@@ -131,7 +131,7 @@ ul li {
     }
 }
 
-/* Menu and Link Styling */
+/* Menu Styling */
 .menu {
     display: flex;
     justify-content: center;
@@ -154,6 +154,12 @@ ul li {
 .menu__link:hover {
     opacity: 0.8;
 }
+
+/* Styling for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 
 @keyframes animateWaves {
     0% {

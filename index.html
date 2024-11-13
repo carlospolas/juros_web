@@ -13,9 +13,17 @@
         <header>
             <h1>Juros Simples e Juros Compostos</h1>
             <p>Entenda as diferenças e os conceitos principais sobre os dois tipos de juros mais usados em finanças.</p>
+            
+            <!-- Navigation Menu -->
+            <nav class="menu">
+                <ul>
+                    <li class="menu__item"><a class="menu__link" href="#juros-simples">Juros Simples</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#juros-compostos">Juros Compostos</a></li>
+                </ul>
+            </nav>
         </header>
 
-        <section class="content">
+        <section class="content" id="juros-simples">
             <h2>O que são Juros?</h2>
             <p>Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Basicamente, é o valor pago ou recebido a mais pelo uso de um capital durante um período de tempo. Eles são expressos em porcentagem, e existem dois tipos principais: os <strong>juros simples</strong> e os <strong>juros compostos</strong>.</p>
 
@@ -30,7 +38,9 @@
                 <li><strong>i</strong> é a taxa de juros por período;</li>
                 <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
             </ul>
+        </section>
 
+        <section class="content" id="juros-compostos">
             <h2>Juros Compostos</h2>
             <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
             <p><strong>Fórmula dos Juros Compostos:</strong></p>
@@ -42,56 +52,29 @@
                 <li><strong>i</strong> é a taxa de juros por período;</li>
                 <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
             </ul>
-
-            <h2>Diferenças Principais</h2>
-            <ul>
-                <li>Nos <strong>juros simples</strong>, os juros são calculados sempre sobre o valor inicial.</li>
-                <li>Nos <strong>juros compostos</strong>, os juros são calculados sobre o valor inicial mais os juros acumulados ao longo do tempo.</li>
-                <li>Os juros compostos resultam em um crescimento mais rápido do montante final.</li>
-            </ul>
         </section>
     </div>
 
-  <footer class="footer">
-    <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Serviços</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
-    </ul>
-    <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Serviços</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
+        </ul>
+        <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
 
-    <!-- Wave animation elements -->
-    <div class="wave" id="wave1"></div>
-    <div class="wave" id="wave2"></div>
-    <div class="wave" id="wave3"></div>
-    <div class="wave" id="wave4"></div>
-      
-</footer>
+        <!-- Wave animation elements -->
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </footer>
 
-<script type="text/javascript">
-    // Animation for the waves
-    @keyframes animateWaves {
-        0% {
-            background-position-x: 1000px;
-        }
-        100% {
-            background-position-x: 0px;
-        }
-    }
-
-    @keyframes animate {
-        0% {
-            background-position-x: -1000px;
-        }
-        100% {
-            background-position-x: 0px;
-        }
-    }
-    
-</script>
-
+    <script type="text/javascript">
+        // Wave animation JavaScript (If necessary)
+    </script>
 </body>
 
 </html>
