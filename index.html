@@ -44,6 +44,7 @@
             background-color: #34495e;
         }
 
+        /* Botão para abrir o menu */
         .menu-btn {
             font-size: 30px;
             cursor: pointer;
@@ -134,14 +135,14 @@
     <script>
         // Função para abrir o menu
         function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
-            document.getElementById("contentWrapper").style.marginLeft = "250px";
+            document.getElementById("sideMenu").style.width = "250px";  // Definir largura do menu
+            document.getElementById("contentWrapper").style.marginLeft = "250px";  // Deslocar o conteúdo para a direita
         }
 
         // Função para fechar o menu
         function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-            document.getElementById("contentWrapper").style.marginLeft = "0";
+            document.getElementById("sideMenu").style.width = "0";  // Definir a largura do menu como 0
+            document.getElementById("contentWrapper").style.marginLeft = "0";  // Retornar o conteúdo à posição original
         }
     </script>
 </body>
