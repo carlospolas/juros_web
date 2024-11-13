@@ -5,133 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introdução aos Juros Simples e Compostos</title>
-    <style>
-        /* Estilo para o corpo da página */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Menu Lateral */
-        .side-menu {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #2c3e50;
-            color: white;
-            overflow-x: hidden;
-            transition: width 0.3s ease;
-            padding-top: 60px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            z-index: 1000; /* Garantir que o menu se sobreponha ao conteúdo */
-        }
-
-        .side-menu a {
-            padding: 15px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-            transition: background 0.3s;
-        }
-
-        .side-menu a:hover {
-            background-color: #34495e;
-        }
-
-        /* Botão de Menu (3 Barras) */
-        .menu-btn {
-            font-size: 36px;
-            cursor: pointer;
-            color: #2c3e50;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 2000;
-        }
-
-        /* Transição suave para todo o conteúdo */
-        .content-wrapper {
-            transition: margin-left 0.3s ease;
-            padding: 20px;
-            min-height: 100vh; /* Garantir que o conteúdo ocupe toda a altura da tela */
-            background-color: #ecf0f1;
-        }
-
-        /* Mostrar o botão de menu apenas em dispositivos móveis */
-        @media screen and (max-width: 768px) {
-            .menu-btn {
-                display: block;
-            }
-
-            /* Ajuste do layout quando o menu estiver aberto */
-            .menu-open .content-wrapper {
-                margin-left: 250px; /* Ajuste o conteúdo para a direita quando o menu estiver aberto */
-            }
-        }
-
-        /* Cabeçalho */
-        header h1 {
-            color: #2c3e50;
-        }
-
-        /* Seção de conteúdo */
-        section {
-            margin-bottom: 30px;
-        }
-
-        section h2 {
-            color: #34495e;
-        }
-
-        section p {
-            font-size: 18px;
-            color: #7f8c8d;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Botão para abrir o menu -->
-    <div class="menu-btn" onclick="openMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div> <!-- Ícone de três barras -->
-
-    <!-- Menu Lateral -->
-    <div class="side-menu" id="sideMenu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-        <a href="index.html">Início</a>
-        <a href="simples.html">Juros Simples</a>
-        <a href="compostos.html">Juros Compostos</a>
-        <a href="#">Sobre</a>
-        <a href="#">Equipa</a>
-    </div>
-
-    <!-- Container com todo o conteúdo da página -->
-    <div class="content-wrapper" id="contentWrapper">
+    <div class="container">
         <header>
             <!-- Main Title -->
             <h1>Juros</h1>
@@ -143,11 +21,13 @@
             <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__item left">
+                        <!-- Updated link for Juros Simples -->
                         <a class="menu__link" href="simples.html">
                             <div class="menu__box">Juros Simples</div>
                         </a>
                     </li>
                     <li class="menu__item right">
+                        <!-- Updated link for Juros Compostos -->
                         <a class="menu__link" href="compostos.html">
                             <div class="menu__box">Juros Compostos</div>
                         </a>
@@ -159,38 +39,42 @@
         <section class="content" id="juros-simples">
             <h2>Juros Simples</h2>
             <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
+            <p><strong>Fórmula dos Juros Simples:</strong></p>
+            <p><code>J = P × i × t</code></p>
+            <p>Onde:</p>
+            <ul>
+                <li><strong>J</strong> é o valor dos juros;</li>
+                <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                <li><strong>i</strong> é a taxa de juros por período;</li>
+                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+            </ul>
         </section>
 
         <section class="content" id="juros-compostos">
             <h2>Juros Compostos</h2>
             <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
+            <p><strong>Fórmula dos Juros Compostos:</strong></p>
+            <p><code>M = P × (1 + i)<sup>t</sup></code></p>
+            <p>Onde:</p>
+            <ul>
+                <li><strong>M</strong> é o montante final (principal + juros);</li>
+                <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                <li><strong>i</strong> é a taxa de juros por período;</li>
+                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+            </ul>
         </section>
     </div>
 
-    <footer class="footer content-wrapper">
+    <footer class="footer">
         <ul class="menu">
+            <!-- Changed "Home" to "Início" and linked it to the initial page (index.html) -->
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Equipa</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Equipa
+            </a></li>
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
-
-    <script>
-        // Função para abrir o menu
-        function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";  // Definir a largura do menu
-            document.getElementById("contentWrapper").style.marginLeft = "250px";  // Deslocar o conteúdo para a direita
-            document.body.classList.add("menu-open"); // Adicionar a classe para mover o conteúdo
-        }
-
-        // Função para fechar o menu
-        function closeMenu() {
-            document.getElementById("sideMenu").style.width = "0";  // Definir a largura do menu como 0
-            document.getElementById("contentWrapper").style.marginLeft = "0";  // Retornar o conteúdo à posição original
-            document.body.classList.remove("menu-open"); // Remover a classe para voltar o conteúdo à posição original
-        }
-    </script>
-</body>
+    
 
 </html>
