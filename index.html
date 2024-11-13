@@ -7,7 +7,7 @@
     <title>Introdução aos Juros Simples e Compostos</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo para o menu lateral */
+        /* Estilo para o corpo da página */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,7 +15,7 @@
             box-sizing: border-box;
         }
 
-        /* Menu lateral estilizado */
+        /* Menu Lateral */
         .side-menu {
             height: 100%;
             width: 0;
@@ -46,22 +46,25 @@
 
         /* Botão para abrir o menu */
         .menu-btn {
-            font-size: 30px;
+            font-size: 36px;
             cursor: pointer;
             color: #2c3e50;
             position: fixed;
             top: 15px;
             left: 15px;
-            z-index: 2000; /* Coloca o botão acima do menu */
+            z-index: 2000;
+            display: none; /* Inicialmente oculto */
         }
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 36px;
-            color: white;
-            cursor: pointer;
+        /* Botão com estilo de três barras */
+        .menu-btn span {
+            display: block;
+            width: 30px;
+            height: 5px;
+            margin: 6px 0;
+            background-color: #2c3e50;
+            border-radius: 5px;
+            transition: all 0.3s;
         }
 
         /* Transição suave para todo o conteúdo */
@@ -69,12 +72,23 @@
             transition: margin-left 0.3s ease;
             padding: 20px;
         }
+
+        /* Mostrar o botão no modo responsivo (dispositivos menores) */
+        @media screen and (max-width: 768px) {
+            .menu-btn {
+                display: block; /* O botão de menu só aparece em telas menores */
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Botão para abrir o menu -->
-    <div class="menu-btn" onclick="openMenu()">&#9776;</div> <!-- Ícone de três barras -->
+    <div class="menu-btn" onclick="openMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div> <!-- Ícone de três barras -->
 
     <!-- Menu Lateral -->
     <div class="side-menu" id="sideMenu">
