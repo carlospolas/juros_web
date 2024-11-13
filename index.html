@@ -27,7 +27,7 @@
             transition: width 0.3s ease;
             padding-top: 60px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            z-index: 1000; /* Para garantir que o menu se sobreponha ao conteúdo */
+            z-index: 1000; /* Garantir que o menu se sobreponha ao conteúdo */
         }
 
         .side-menu a {
@@ -43,7 +43,7 @@
             background-color: #34495e;
         }
 
-        /* Botão para abrir o menu */
+        /* Botão de Menu (3 Barras) */
         .menu-btn {
             font-size: 36px;
             cursor: pointer;
@@ -52,18 +52,6 @@
             top: 15px;
             left: 15px;
             z-index: 2000;
-            display: none; /* Inicialmente oculto */
-        }
-
-        /* Botão com estilo de três barras */
-        .menu-btn span {
-            display: block;
-            width: 30px;
-            height: 5px;
-            margin: 6px 0;
-            background-color: #2c3e50;
-            border-radius: 5px;
-            transition: all 0.3s;
         }
 
         /* Transição suave para todo o conteúdo */
@@ -72,11 +60,16 @@
             padding: 20px;
         }
 
-        /* Mostrar o botão no modo responsivo (dispositivos menores) */
+        /* Mostrar o botão de menu apenas em dispositivos móveis */
         @media screen and (max-width: 768px) {
             .menu-btn {
-                display: block; /* O botão de menu só aparece em telas menores */
+                display: block;
             }
+        }
+
+        /* Ocultar o conteúdo até o menu ser aberto */
+        .menu-open .content-wrapper {
+            margin-left: 250px; /* Ajuste o conteúdo para a direita quando o menu estiver aberto */
         }
     </style>
 </head>
@@ -99,7 +92,7 @@
         <a href="#">Equipa</a>
     </div>
 
-    <!-- Container que envolve todo o conteúdo da página -->
+    <!-- Container com todo o conteúdo da página -->
     <div class="content-wrapper" id="contentWrapper">
         <header>
             <!-- Main Title -->
@@ -148,14 +141,16 @@
     <script>
         // Função para abrir o menu
         function openMenu() {
-            document.getElementById("sideMenu").style.width = "250px";  // Definir largura do menu
+            document.getElementById("sideMenu").style.width = "250px";  // Definir a largura do menu
             document.getElementById("contentWrapper").style.marginLeft = "250px";  // Deslocar o conteúdo para a direita
+            document.body.classList.add("menu-open"); // Adicionar a classe para mover o conteúdo
         }
 
         // Função para fechar o menu
         function closeMenu() {
             document.getElementById("sideMenu").style.width = "0";  // Definir a largura do menu como 0
             document.getElementById("contentWrapper").style.marginLeft = "0";  // Retornar o conteúdo à posição original
+            document.body.classList.remove("menu-open"); // Remover a classe para voltar o conteúdo à posição original
         }
     </script>
 </body>
