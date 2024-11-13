@@ -17,22 +17,17 @@
             <!-- Introduction -->
             <p class="intro-text">Juros são o custo do dinheiro emprestado ou o retorno sobre um investimento. Eles podem ser simples ou compostos, e são essenciais para entender como o capital cresce ao longo do tempo.</p>
 
-            <!-- Hamburger Icon -->
-            <div class="hamburger" id="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
             <!-- Navigation Menu with boxes (left and right) -->
-            <nav class="menu" id="menu">
+            <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__item left">
+                        <!-- Updated link for Juros Simples -->
                         <a class="menu__link" href="simples.html">
                             <div class="menu__box">Juros Simples</div>
                         </a>
                     </li>
                     <li class="menu__item right">
+                        <!-- Updated link for Juros Compostos -->
                         <a class="menu__link" href="compostos.html">
                             <div class="menu__box">Juros Compostos</div>
                         </a>
@@ -43,25 +38,43 @@
 
         <section class="content" id="juros-simples">
             <h2>Juros Simples</h2>
-            <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo. O cálculo é feito de forma linear, levando em consideração apenas o valor inicial e o tempo.</p>
+            <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
+            <p><strong>Fórmula dos Juros Simples:</strong></p>
+            <p><code>J = P × i × t</code></p>
+            <p>Onde:</p>
+            <ul>
+                <li><strong>J</strong> é o valor dos juros;</li>
+                <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                <li><strong>i</strong> é a taxa de juros por período;</li>
+                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+            </ul>
         </section>
 
         <section class="content" id="juros-compostos">
             <h2>Juros Compostos</h2>
-            <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial. O cálculo é feito de forma acumulada, considerando o efeito dos juros sobre os juros do período anterior.</p>
+            <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
+            <p><strong>Fórmula dos Juros Compostos:</strong></p>
+            <p><code>M = P × (1 + i)<sup>t</sup></code></p>
+            <p>Onde:</p>
+            <ul>
+                <li><strong>M</strong> é o montante final (principal + juros);</li>
+                <li><strong>P</strong> é o valor principal (capital inicial);</li>
+                <li><strong>i</strong> é a taxa de juros por período;</li>
+                <li><strong>t</strong> é o tempo de aplicação ou empréstimo.</li>
+            </ul>
         </section>
     </div>
 
     <footer class="footer">
         <ul class="menu">
+            <!-- Changed "Home" to "Início" and linked it to the initial page (index.html) -->
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Equipa</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Equipa
+            </a></li>
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
-
-    <script src="scripts.js"></script>
-</body>
+    
 
 </html>
