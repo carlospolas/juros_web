@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juros Simples</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script> <!-- Link to JavaScript file -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Juros Simples</h1>
+            <p class="intro-text">Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (capital) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
+
+            <!-- Navigation Menu with boxes -->
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__item left">
+                        <a class="menu__link" href="simples.html">
+                            <div class="menu__box">Juros Simples</div>
+                        </a>
+                    </li>
+                    <li class="menu__item right">
+                        <a class="menu__link" href="compostos.html">
+                            <div class="menu__box">Juros Compostos</div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="content" id="juros-simples">
+            <h2>Juros Simples</h2>
+            <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (capital) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
+            <p><strong>Fórmula dos Juros Simples:</strong></p>
+            <div class="formula-box">
+                <p><code>I = P × i × t</code></p>
+            </div>
+            <p>Onde:</p>
+            <ul>
+                <li><strong>I</strong> é o valor dos juros (Interest);</li>
+                <li><strong>P</strong> é o valor principal (Principal);</li>
+                <li><strong>i</strong> é a taxa de juros por período;</li>
+                <li><strong>t</strong> é o tempo de aplicação ou empréstimo (Tempo em períodos).</li>
+            </ul>
+
+            <!-- Calculator Section for Juros Simples -->
+            <h3>Calculadora de Juros Simples</h3>
+            <form id="juros-simples-form">
+                <label for="principal">Valor Principal (P):</label>
+                <input type="number" id="principal" name="principal" required><br>
+
+                <label for="taxa">Taxa de Juros (%):</label>
+                <input type="number" id="taxa" name="taxa" required><br>
+
+                <label for="tempo">Tempo (em anos):</label>
+                <input type="number" id="tempo" name="tempo" required><br>
+
+                <button type="button" onclick="calcularJurosSimples()">Calcular Juros</button>
+            </form>
+
+            <div id="resultado-simples">
+                <p><strong>Juros Calculados: </strong><span id="juros-simples-resultado"></span></p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
+        </ul>
+        <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+    </footer>
+
+</body>
+
+</html>
