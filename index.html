@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introdução aos Juros Simples e Compostos</title>
+    <title>Juros e Créditos </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -15,36 +15,52 @@
             <p class="intro-text">Aqui você encontra informações sobre Juros Simples, Compostos e Crédito de Habitação.</p>
         
             <!-- Navigation Menu -->
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__item left">
-                        <a class="menu__link" href="simples.html">
-                            <div class="menu__box">Juros Simples</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="compostos.html">
-                            <div class="menu__box">Juros Compostos</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="credito.html">
-                            <div class="menu__box">Crédito de Habitação</div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+       <!-- Navigation Menu with boxes -->
+<nav class="menu">
+    <ul class="menu__list">
+        <li class="menu__item left">
+            <a class="menu__link" href="simples.html">
+                <div class="menu__box">Juros Simples</div>
+            </a>
+        </li>
+        <li class="menu__item center">
+            <a class="menu__link" href="compostos.html">
+                <div class="menu__box">Juros Compostos</div>
+            </a>
+        </li>
+        <!-- New link to the Crédito Bancário page -->
+        <li class="menu__item center">
+            <a class="menu__link" href="bancario.html">
+                <div class="menu__box">Crédito Bancário</div>
+            </a>
+        </li>
+        <li class="menu__item center">
+            <a class="menu__link" href="credito.html">
+                <div class="menu__box">Crédito à Habitação</div>
+            </a>
+        </li>
+    </ul>
+</nav>
+
         </header>
         
-
+        <!-- Juros Simples Section -->
         <section class="content" id="juros-simples">
             <h2>Juros Simples</h2>
             <p>Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (principal) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
         </section>
 
+        <!-- Juros Compostos Section -->
         <section class="content" id="juros-compostos">
             <h2>Juros Compostos</h2>
             <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
+        </section>
+
+        <!-- Crédito de Habitação Section -->
+        <section class="content" id="credito-habitacao">
+            <h2>Crédito de Habitação</h2>
+            <p>O crédito de habitação é um tipo de financiamento concedido por instituições financeiras para a aquisição de um imóvel, seja ele uma casa, apartamento ou terreno. O comprador obtém o valor do imóvel e o paga ao banco em parcelas, geralmente com juros e outros encargos, ao longo de um período de tempo pré-estabelecido.</p>
+            <p>Este tipo de crédito é uma das principais formas de compra de imóveis, e as taxas de juros e condições de pagamento podem variar dependendo da instituição financeira, do perfil do cliente e do valor financiado.</p>
         </section>
     </div>
 
@@ -53,13 +69,9 @@
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
-            <!-- Updated link to credito.html -->
-            <li class="menu__item"><a class="menu__link" href="credito.html">Crédito de Habitação</a></li>
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
-    
-
 </body>
 
 </html>

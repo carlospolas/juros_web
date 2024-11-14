@@ -103,3 +103,135 @@ function calcularJurosCompostos() {
     }
 }
 
+// Function to calculate the monthly payment for Crédito Bancário
+function calcularCreditoBancario() {
+    // Get input values
+    const valorCredito = parseFloat(document.getElementById('valor-credito-bancario').value); // Loan amount (Principal)
+    const taxaJurosAnual = parseFloat(document.getElementById('taxa-juros-bancario').value); // Annual interest rate in percentage
+    const prazo = parseInt(document.getElementById('prazo-bancario').value); // Loan term in years
+
+    // Validate inputs
+    if (isNaN(valorCredito) || isNaN(taxaJurosAnual) || isNaN(prazo) || valorCredito <= 0 || taxaJurosAnual < 0 || prazo <= 0) {
+        alert("Por favor, insira valores válidos para todos os campos.");
+        return;
+    }
+
+    // Convert the annual interest rate to a monthly rate (in decimal form)
+    const taxaJurosMensal = (taxaJurosAnual / 100) / 12; // Monthly interest rate
+
+    // Total number of monthly payments (in months)
+    const numeroParcelas = prazo * 12;
+
+    // Apply the Crédito Bancário formula for monthly installment
+    let parcelaMensal;
+    if (taxaJurosMensal === 0) {
+        // If no interest, simply divide the principal by the number of months
+        parcelaMensal = valorCredito / numeroParcelas;
+    } else {
+        // Formula to calculate the monthly installment with compound interest
+        const numerador = valorCredito * taxaJurosMensal * Math.pow(1 + taxaJurosMensal, numeroParcelas);
+        const denominador = Math.pow(1 + taxaJurosMensal, numeroParcelas) - 1;
+        parcelaMensal = numerador / denominador;
+    }
+
+    // Display the result (rounded to 2 decimal places for currency format)
+    const resultadoElement = document.getElementById('parcela-credito-bancario-resultado');
+    resultadoElement.textContent = parcelaMensal.toFixed(2); // Show result with two decimal places
+}
+function calcularCreditoBancario() {
+    // Get user inputs
+    const valorCredito = parseFloat(document.getElementById('valor-credito-bancario').value);
+    const taxaJuros = parseFloat(document.getElementById('taxa-juros-bancario').value) / 100 / 12; // Monthly interest rate
+    const prazo = parseFloat(document.getElementById('prazo-bancario').value);
+    
+    // Total number of payments (in months)
+    const numeroPagamentos = prazo * 12;
+
+    // Formula to calculate monthly installment
+    const mensalidade = valorCredito * (taxaJuros * Math.pow(1 + taxaJuros, numeroPagamentos)) / (Math.pow(1 + taxaJuros, numeroPagamentos) - 1);
+
+    // Format the result to 2 decimal places
+    const mensalidadeFormatted = mensalidade.toFixed(2);
+
+    // Show result
+    document.getElementById('parcela-credito-bancario-resultado').innerText = `€${mensalidadeFormatted}`;
+    document.getElementById('aviso-credito-bancario').style.display = 'block';
+    
+    // Step-by-step calculation breakdown
+    let passosHTML = `
+        <h4>1. Calcular a Taxa de Juros Mensal (i):</h4>
+        <p>Taxa de Juros Anual: ${document.getElementById('taxa-juros-bancario').value}%</p>
+        <p>Taxa de Juros Mensal: ${taxaJuros * 100}%</p>
+        
+        <h4>2. Calcular o Número Total de Pagamentos (n):</h4>
+        <p>Prazo em Anos: ${prazo}</p>
+        <p>Total de Pagamentos (Meses): ${prazo} x 12 = ${numeroPagamentos}</p>
+
+        <h4>3. Aplicar a Fórmula para Calcular a Prestação Mensal:</h4>
+        <p>M = ${valorCredito} x ( ${taxaJuros} x (1 + ${taxaJuros}) ^ ${numeroPagamentos} ) / ( (1 + ${taxaJuros}) ^ ${numeroPagamentos} - 1 ) </p>
+        <p>Prestação Mensal = €${mensalidadeFormatted}</p>
+    `;
+
+    // Display the breakdown steps
+    document.getElementById('passos-calc-credito-bancario').innerHTML = passosHTML;
+    document.getElementById('passos-credito-bancario').style.display = 'block';
+}
+
+function calcularCreditoHabitaçao() {
+    // Get input values
+    const valorCredito = parseFloat(document.getElementById('valor-credito').value);
+    const taxaJuros = parseFloat(document.getElementById('taxa-juros').value) / 100; // Convert to decimal
+    const prazo = parseInt(document.getElementById('prazo').value);
+    const entrada = parseFloat(document.getElementById('entrada').value) || 0; // If not filled, assume 0
+    const tipoJuros = document.getElementById('tipo-juros').value; // Fixed or Variable
+    const tipoPagamento = document.getElementById('prestacao').value; // Principal+Interest or Interest Only
+
+    // Validate inputs
+    if (isNaN(valorCredito) || valorCredito <= 0 || isNaN(taxaJuros) || taxaJuros <= 0 || isNaN(prazo) || prazo <= 0) {
+        alert("Por favor, insira valores válidos.");
+        return;
+    }
+
+    // Subtract down payment from loan amount
+    const valorFinalCredito = valorCredito - entrada;
+
+    // Convert the annual interest rate to a monthly interest rate
+    const taxaMensal = taxaJuros / 12;
+
+    // Calculate the total number of payments (months)
+    const numeroPagamentos = prazo * 12;
+
+    // Calculate monthly payment based on payment type
+    let parcela;
+    if (tipoPagamento === "principal") {
+        parcela = (valorFinalCredito * taxaMensal) / (1 - Math.pow(1 + taxaMensal, -numeroPagamentos));
+    } else {
+        // Interest-only payment calculation (just paying interest)
+        parcela = valorFinalCredito * taxaMensal;
+    }
+
+    // Format the result to 2 decimal places
+    const parcelaFormatada = parcela.toFixed(2);
+
+    // Display the result
+    document.getElementById('parcela-credito-resultado').innerText = `€${parcelaFormatada}`;
+
+    // Display breakdown steps
+    const resultado = `
+        <h3>Passo a Passo do Cálculo:</h3>
+        <p><strong>Valor do Crédito (P):</strong> €${valorCredito}</p>
+        <p><strong>Entrada (Down Payment):</strong> €${entrada}</p>
+        <p><strong>Valor Final do Crédito:</strong> €${valorFinalCredito}</p>
+        <p><strong>Taxa de Juro Anual (%):</strong> ${taxaJuros * 100}%</p>
+        <p><strong>Taxa de Juro Mensal (i):</strong> ${taxaMensal * 100}%</p>
+        <p><strong>Prazo (anos):</strong> ${prazo} anos</p>
+        <p><strong>Total de Pagamentos (n):</strong> ${numeroPagamentos} meses</p>
+        <p><strong>Prestação Mensal (M):</strong> €${parcelaFormatada}</p>
+    `;
+
+    // Append the breakdown to the result section
+    const resultadoDiv = document.getElementById('resultado-credito');
+    const breakdownDiv = document.createElement('div');
+    breakdownDiv.innerHTML = resultado;
+    resultadoDiv.appendChild(breakdownDiv);
+}

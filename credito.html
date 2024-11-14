@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crédito de Habitação</title>
+    <title>Crédito à Habitação</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
@@ -12,8 +12,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>Crédito de Habitação</h1>
-            <p class="intro-text">O crédito de habitação é uma linha de crédito destinada à compra de imóvel, e pode ter diferentes condições, incluindo taxa de juros fixas ou variáveis, e prazos longos de pagamento.</p>
+            <h1>Crédito à Habitação</h1>
+            <p class="intro-text">O crédito à habitação é uma linha de crédito destinada à compra de imóvel, e pode ter diferentes condições, incluindo taxas de juro fixas ou variáveis, e prazos longos de pagamento.</p>
 
             <!-- Navigation Menu with boxes -->
             <nav class="menu">
@@ -23,15 +23,19 @@
                             <div class="menu__box">Juros Simples</div>
                         </a>
                     </li>
-                    <li class="menu__item right">
+                    <li class="menu__item center">
                         <a class="menu__link" href="compostos.html">
                             <div class="menu__box">Juros Compostos</div>
                         </a>
                     </li>
-                    <!-- New link to the Crédito de Habitação page -->
                     <li class="menu__item center">
-                        <a class="menu__link" href="credito-habitacao.html">
-                            <div class="menu__box">Crédito de Habitação</div>
+                        <a class="menu__link" href="bancario.html">
+                            <div class="menu__box">Crédito Bancário</div>
+                        </a>
+                    </li>
+                    <li class="menu__item center">
+                        <a class="menu__link" href="credito.html">
+                            <div class="menu__box">Crédito à Habitação</div>
                         </a>
                     </li>
                 </ul>
@@ -39,46 +43,54 @@
         </header>
 
         <section class="content" id="credito-habitacao">
-            <h2>O que é Crédito de Habitação?</h2>
-            <p>O crédito de habitação é um tipo de financiamento oferecido pelos bancos para a compra de imóveis. O empréstimo pode ser utilizado tanto para aquisição da casa própria quanto para a construção ou remodelação de um imóvel. As condições variam dependendo do banco, como a taxa de juros, prazos de pagamento e a possibilidade de amortização antecipada.</p>
+            <h2>O que é Crédito à Habitação?</h2>
+            <p>O crédito à habitação é um tipo de financiamento oferecido pelos bancos para a compra de imóveis. O empréstimo pode ser utilizado tanto para a aquisição da casa própria como para a construção ou remodelação de um imóvel. As condições variam dependendo do banco, como a taxa de juro, prazos de pagamento e a possibilidade de amortização antecipada.</p>
             
-            <h3>Exemplo de Como Funciona o Crédito de Habitação</h3>
-            <p>Em um crédito de habitação, a instituição financeira empresta uma quantia ao cliente, e o cliente paga parcelas mensais de acordo com o valor do empréstimo, taxa de juros e o prazo do contrato. As taxas de juros podem ser fixas ou variáveis, o que pode influenciar no valor da parcela durante o período de pagamento.</p>
+            <h3>Exemplo de Como Funciona o Crédito à Habitação</h3>
+            <p>Num crédito à habitação, a instituição financeira empresta uma quantia ao cliente, e o cliente paga prestações mensais de acordo com o valor do empréstimo, a taxa de juro e o prazo do contrato. As taxas de juro podem ser fixas ou variáveis, o que pode influenciar o valor da prestação durante o período de pagamento.</p>
 
-            <h3>Calculadora de Crédito de Habitação</h3>
-            <p>Use a calculadora abaixo para calcular as possíveis parcelas mensais do seu crédito de habitação, com base no valor do empréstimo, taxa de juros e prazo escolhido.</p>
-            
-            <!-- Mortgage Calculator Form -->
+            <h3>Calculadora de Crédito à Habitação</h3>
             <form id="credito-habitacao-form">
-                <label for="valor-credito">Valor do Crédito (R$):</label>
+                <label for="valor-credito">Valor do Crédito (€):</label>
                 <input type="number" id="valor-credito" name="valor-credito" required><br>
 
-                <label for="taxa-juros">Taxa de Juros (%):</label>
+                <label for="taxa-juros">Taxa de Juro (%):</label>
                 <input type="number" id="taxa-juros" name="taxa-juros" required><br>
 
                 <label for="prazo">Prazo (anos):</label>
                 <input type="number" id="prazo" name="prazo" required><br>
 
-                <button type="button" onclick="calcularCreditoHabitaçao()">Calcular Parcela</button>
+                <label for="entrada">Entrada (€):</label>
+                <input type="number" id="entrada" name="entrada"><br>
+
+                <label for="tipo-juros">Tipo de Juros:</label>
+                <select id="tipo-juros">
+                    <option value="fixo">Fixo</option>
+                    <option value="variavel">Variável</option>
+                </select><br>
+
+                <label for="prestacao">Tipo de Pagamento:</label>
+                <select id="prestacao">
+                    <option value="principal">Principal + Juros</option>
+                    <option value="somente-juros">Somente Juros</option>
+                </select><br><br>
+
+                <button type="button" onclick="calcularCreditoHabitaçao()">Calcular Prestação</button>
             </form>
 
             <div id="resultado-credito">
-                <p><strong>Parcela Mensal (R$): </strong><span id="parcela-credito-resultado"></span></p>
+                <p><strong>Prestação Mensal (€): </strong><span id="parcela-credito-resultado"></span></p>
             </div>
         </section>
-
     </div>
     <footer class="footer">
         <ul class="menu">
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Equipe</a></li>
-            <!-- Keep the link to credito.html -->
+            <li class="menu__item"><a class="menu__link" href="#">Equipa</a></li>
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
-    
-
 </body>
 
 </html>
