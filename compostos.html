@@ -48,25 +48,40 @@
                 <li><strong>t</strong> é o tempo de aplicação ou empréstimo (Tempo em períodos).</li>
             </ul>
 
-            <!-- Calculator Section for Juros Compostos -->
-            <h3>Calculadora de Juros Compostos</h3>
-            <form id="juros-compostos-form">
-                <label for="principal-compostos">Valor Principal (P):</label>
-                <input type="number" id="principal-compostos" name="principal-compostos" required><br>
+<!-- Juros Compostos Section -->
+<section class="content" id="juros-compostos">
+    <h2>Juros Compostos</h2>
+    <p>Nos juros compostos, os juros são calculados sobre o valor inicial (capital) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
 
-                <label for="taxa-compostos">Taxa de Juros (%):</label>
-                <input type="number" id="taxa-compostos" name="taxa-compostos" required><br>
+    <!-- Calculator Form -->
+    <h3>Calculadora de Juros Compostos</h3>
+    <form id="juros-compostos-form">
+        <label for="principal-compostos">Valor Principal (P):</label>
+        <input type="number" id="principal-compostos" name="principal-compostos" required><br>
 
-                <label for="tempo-compostos">Tempo (em anos):</label>
-                <input type="number" id="tempo-compostos" name="tempo-compostos" required><br>
+        <label for="taxa-compostos">Taxa de Juros (%):</label>
+        <input type="number" id="taxa-compostos" name="taxa-compostos" required><br>
 
-                <button type="button" onclick="calcularJurosCompostos()">Calcular Montante</button>
-            </form>
+        <label for="tempo-compostos">Tempo (em anos):</label>
+        <input type="number" id="tempo-compostos" name="tempo-compostos" required><br>
 
-            <div id="resultado-compostos">
-                <p><strong>Montante Final (M): </strong><span id="montante-compostos-resultado"></span></p>
-            </div>
-        </section>
+        <label for="periodo-compostos">Período de Capitalização:</label>
+        <select id="periodo-compostos">
+            <option value="mensal">Mensal</option>
+            <option value="trimestral">Trimestral</option>
+            <option value="semestral">Semestral</option>
+            <option value="anual">Anual</option>
+        </select><br><br>
+
+        <button type="button" onclick="calcularJurosCompostos()">Calcular Montante</button>
+    </form>
+
+    <!-- Result Section -->
+    <div id="resultado-compostos" style="display:none;">
+        <p><strong>Montante Final (M): </strong><span id="juros-compostos-resultado"></span></p>
+    </div>
+</section>
+
     </div>
 
     <footer class="footer">
