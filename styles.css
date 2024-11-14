@@ -310,3 +310,64 @@ button:hover {
     margin-bottom: 10px;
 }
 
+/* Cool 3D hover effect for the select box */
+select {
+    width: 15%;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    transform: perspective(500px) rotateX(0deg);
+}
+
+/* Hover effect: 3D transform on hover to give it depth */
+select:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: perspective(500px) rotateX(10deg); /* Slight tilt effect */
+    transition: all 0.3s ease-out;
+}
+
+/* Focus effect: Make it stand out more when clicked/focused */
+select:focus {
+    outline: none;
+    border: 1px solid #007bff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transform: perspective(500px) rotateX(5deg); /* Slight 3D effect when focused */
+}
+
+/* Add subtle scaling on hover for the select options */
+select option {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Option hover effect */
+select option:hover {
+    background-color: #2980b9;
+    color: white;
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+/* Smooth transition for the background color of the select */
+select option {
+    background-color: #f0f0f0;
+}
+
+/* Optional: Fancy little sliding animation for when the dropdown opens */
+select {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
