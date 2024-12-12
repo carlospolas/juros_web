@@ -235,3 +235,4 @@ function calcularCreditoHabitaçao() {
     breakdownDiv.innerHTML = resultado;
     resultadoDiv.appendChild(breakdownDiv);
 }
+
