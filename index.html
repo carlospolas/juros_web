@@ -9,40 +9,45 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <button class="sidebar-menu__toggle" data-target="#juros-simples">
+                    Juros Simples
+                </button>
+            </li>
+            <li class="sidebar-menu__item">
+                <button class="sidebar-menu__toggle" data-target="#juros-compostos">
+                    Juros Compostos
+                </button>
+            </li>
+            <li class="sidebar-menu__item">
+                <button class="sidebar-menu__toggle" data-target="#credito-habitacao">
+                    Crédito à Habitação
+                </button>
+            </li>
+            <li class="sidebar-menu__item">
+                <button class="sidebar-menu__toggle" data-target="#credito-bancario">
+                    Crédito Bancário
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- Conteúdo principal -->
+    <div class="container main-content">
         <header>
             <h1>Juros e Crédito</h1>
-            <p class="intro-text">Aqui você encontra informações sobre Juros Simples, Compostos, Crédito de Habitação e Crédito Bancário.</p>
-        
-            <!-- Navigation Menu -->
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__item left">
-                        <a class="menu__link" href="simples.html">
-                            <div class="menu__box">Juros Simples</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="compostos.html">
-                            <div class="menu__box">Juros Compostos</div>
-                        </a>
-                    </li>
-                    <!-- New link to the Crédito à Habitação page -->
-                    <li class="menu__item center">
-                        <a class="menu__link" href="credito.html">
-                            <div class="menu__box">Crédito à Habitação</div>
-                        </a>
-                    </li>
-                    <!-- Crédito Bancário now comes after Crédito à Habitação -->
-                    <li class="menu__item center">
-                        <a class="menu__link" href="bancario.html">
-                            <div class="menu__box">Crédito Bancário</div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <p class="intro-text">
+                Aqui você encontra informações sobre Juros Simples, Compostos, Crédito à Habitação e Crédito Bancário.
+            </p>
         </header>
-        
+
         <!-- Juros Simples Section -->
         <section class="content" id="juros-simples">
             <h2>Juros Simples</h2>
@@ -55,14 +60,14 @@
             <p>Nos juros compostos, os juros são calculados sobre o valor inicial (principal) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
         </section>
 
-        <!-- Crédito à Habitação Section now comes first -->
+        <!-- Crédito à Habitação Section -->
         <section class="content" id="credito-habitacao">
             <h2>Crédito à Habitação</h2>
             <p>O crédito de habitação é um tipo de financiamento concedido por instituições financeiras para a aquisição de um imóvel, seja ele uma casa, apartamento ou terreno. O comprador obtém o valor do imóvel e o paga ao banco em parcelas, geralmente com juros e outros encargos, ao longo de um período de tempo pré-estabelecido.</p>
             <p>Este tipo de crédito é uma das principais formas de compra de imóveis, e as taxas de juros e condições de pagamento podem variar dependendo da instituição financeira, do perfil do cliente e do valor financiado.</p>
         </section>
 
-        <!-- Crédito Bancário Section now comes after Crédito à Habitação -->
+        <!-- Crédito Bancário Section -->
         <section class="content" id="credito-bancario">
             <h2>Crédito Bancário</h2>
             <p>O crédito bancário é o empréstimo concedido por uma instituição financeira, como bancos, para indivíduos ou empresas. Este crédito pode ser utilizado para diversos fins, como a compra de bens, investimentos, ou até mesmo para cobrir despesas imprevistas.</p>
@@ -70,13 +75,17 @@
         </section>
     </div>
 
+    <!-- Rodapé -->
     <footer class="footer">
         <ul class="menu">
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
             <li class="menu__item"><a class="menu__link" href="equipa.html">Equipa</a></li>
         </ul>
-        <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+        <p>&copy; 2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>

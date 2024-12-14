@@ -236,3 +236,31 @@ function calcularCreditoHabitaçao() {
     resultadoDiv.appendChild(breakdownDiv);
 }
 
+// Seleção de elementos
+const toggleButton = document.getElementById('menu-toggle');
+const sidebarMenu = document.getElementById('sidebar-menu');
+const menuLinks = document.querySelectorAll('.sidebar-menu__toggle');
+
+// Alterna o menu lateral
+toggleButton.addEventListener('click', () => {
+    sidebarMenu.classList.toggle('open');
+});
+
+// Navega para a seção correspondente ao clicar no botão
+menuLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        const targetId = event.target.dataset.target;
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            // Fecha o menu (opcional)
+            sidebarMenu.classList.remove('open');
+
+            // Rola para a seção correspondente
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    });
+});
