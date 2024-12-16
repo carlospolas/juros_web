@@ -264,3 +264,8 @@ menuLinks.forEach(link => {
         }
     });
 });
+
+document.getElementById("menu-toggle").addEventListener("click", function () {
+    document.getElementById("sidebar-menu").classList.toggle("open");
+    document.querySelector(".main-content").classList.toggle("shifted");
+});

@@ -13,30 +13,48 @@
     <button class="menu-toggle" id="menu-toggle">☰</button>
 
     <!-- Menu lateral -->
+    <!-- Menu lateral -->
     <nav class="sidebar-menu" id="sidebar-menu">
+        <!-- Ícone do menu -->
+        <div class="menu-icon">
+            Menu
+        </div>
+        <!-- Lista de itens -->
         <ul class="sidebar-menu__list">
             <li class="sidebar-menu__item">
-                <button class="sidebar-menu__toggle" data-target="#juros-simples">
-                    Juros Simples
-                </button>
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
             </li>
             <li class="sidebar-menu__item">
-                <button class="sidebar-menu__toggle" data-target="#juros-compostos">
-                    Juros Compostos
-                </button>
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
             </li>
             <li class="sidebar-menu__item">
-                <button class="sidebar-menu__toggle" data-target="#credito-habitacao">
-                    Crédito à Habitação
-                </button>
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
             </li>
             <li class="sidebar-menu__item">
-                <button class="sidebar-menu__toggle" data-target="#credito-bancario">
-                    Crédito Bancário
-                </button>
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
             </li>
         </ul>
     </nav>
+    
+
+    <script>
+        // Script para alternar a visibilidade do menu
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+    </script>
+</body>
 
 
     <!-- Conteúdo principal -->
@@ -70,7 +88,7 @@
         <!-- Crédito Bancário Section -->
         <section class="content" id="credito-bancario">
             <h2>Crédito Bancário</h2>
-            <p>O crédito bancário é o empréstimo concedido por uma instituição financeira, como bancos, para indivíduos ou empresas. Este crédito pode ser utilizado para diversos fins, como a compra de bens, investimentos, ou até mesmo para cobrir despesas imprevistas.</p>
+            <p>O crédito bancário é o empréstimo concedido por uma instituição financeira, como bancos, para indivíduos ou empresas. <br>Este crédito pode ser utilizado para diversos fins, como a compra de bens, investimentos, ou até mesmo para cobrir despesas imprevistas.</p>
             <p>As condições do crédito bancário, como taxas de juros, prazos de pagamento e limites de crédito, variam de acordo com o perfil do cliente, o tipo de crédito solicitado e a política do banco. Existem diferentes tipos de crédito bancário, como o crédito pessoal, crédito consignado, e o crédito rotativo, cada um com suas características e requisitos específicos.</p>
         </section>
     </div>
