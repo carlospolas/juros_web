@@ -732,23 +732,6 @@ header p {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
 }
 
-/* Estilos do nome, cargo e biografia */
-.team-member__name {
-    font-size: 1.3rem;
-    color: #333;
-    margin: 10px 0;
-}
-
-.team-member__role {
-    font-size: 1.1rem;
-    color: #888;
-    margin: 5px 0;
-}
-
-.team-member__bio {
-    font-size: 1rem;
-    color: #666;
-}
 
 /* Estilo do rodapé */
 footer {

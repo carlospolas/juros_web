@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importância da Matemática nos Salários</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">Menu</div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container main-content">
+        <header>
+            <h1>Importância da Matemática nos Salários</h1>
+            <p class="intro-text">
+                A matemática é essencial para compreender e calcular os salários de forma eficaz. Ela ajuda-nos a calcular a remuneração com base nas horas trabalhadas, salários por hora e as deduções necessárias.
+            </p>
+        </header>
+
+        <section class="content" id="salarios">
+            <h2>Como a Matemática Afeta os Salários?</h2>
+            <p>Os cálculos matemáticos são fundamentais para determinar o salário de um trabalhador. Estes cálculos podem incluir:</p>
+            <ul>
+                <li><strong>Salário por hora</strong>: A matemática permite calcular quanto um trabalhador recebe por hora trabalhada.</li>
+                <li><strong>Horas extras</strong>: A matemática ajuda a calcular o pagamento adicional pelas horas trabalhadas além da jornada normal.</li>
+                <li><strong>Deduções</strong>: Impostos, contribuições para a segurança social e outros descontos são aplicados aos salários utilizando fórmulas matemáticas específicas.</li>
+            </ul>
+
+            <h3>Exemplo de Cálculo de Salário</h3>
+            <p>Suponhamos que um trabalhador tenha um salário por hora de 20,00 € e trabalhe 160 horas por mês. Além disso, o trabalhador tem uma dedução de 10% sobre o salário bruto para impostos. A matemática ajuda-nos a calcular o salário líquido após as deduções.</p>
+            <p><strong>Fórmula:</strong> <code>Salário Bruto = Salário por Hora × Horas Trabalhadas</code></p>
+            <p><strong>Fórmula para Salário Líquido:</strong> <code>Salário Líquido = Salário Bruto - Dedução</code></p>
+
+            <!-- Calculadora de Salário -->
+            <h3>Calculadora de Salário</h3>
+            <form id="salarios-form">
+                <label for="salario-hora">Salário por Hora (€):</label>
+                <input type="number" id="salario-hora" name="salario-hora" required><br>
+
+                <label for="horas-trabalhadas">Horas Trabalhadas no Mês:</label>
+                <input type="number" id="horas-trabalhadas" name="horas-trabalhadas" required><br>
+
+                <label for="horas-extras">Horas Extras Trabalhadas:</label>
+                <input type="number" id="horas-extras" name="horas-extras"><br>
+
+                <label for="valor-hora-extra">Valor por Hora Extra (€):</label>
+                <input type="number" id="valor-hora-extra" name="valor-hora-extra"><br>
+
+                <label for="salario-ferias">Adicional de Férias (%):</label>
+                <input type="number" id="salario-ferias" name="salario-ferias"><br>
+
+                <label for="deducao">Percentual de Dedução (%):</label>
+                <input type="number" id="deducao" name="deducao" required><br>
+
+                <button type="button" onclick="calcularSalario()">Calcular Salário</button>
+            </form>
+
+            <!-- Resultado -->
+            <div id="resultado-salario" style="display: none;">
+                <h4>Passo a Passo do Cálculo:</h4>
+                <p><strong>Passo 1:</strong> Calcular o Salário Bruto: <code>Salário Bruto = Salário por Hora × Horas Trabalhadas</code></p>
+                <p id="passo1"></p>
+                <p><strong>Passo 2:</strong> Calcular as Horas Extras: <code>Horas Extras = Horas Extras × Valor por Hora Extra</code></p>
+                <p id="passo2"></p>
+                <p><strong>Passo 3:</strong> Calcular o Adicional de Férias: <code>Adicional de Férias = Salário Bruto × Percentual de Férias</code></p>
+                <p id="passo3"></p>
+                <p><strong>Passo 4:</strong> Calcular a Dedução: <code>Dedução = Salário Bruto × Percentual de Dedução</code></p>
+                <p id="passo4"></p>
+                <p><strong>Passo 5:</strong> Calcular o Salário Líquido: <code>Salário Líquido = Salário Bruto + Horas Extras + Adicional de Férias - Dedução</code></p>
+                <p id="passo5"></p>
+                <p><strong>Salário Bruto: </strong><span id="salario-bruto"></span></p>
+                <p><strong>Horas Extras: </strong><span id="valor-horas-extras"></span></p>
+                <p><strong>Adicional de Férias: </strong><span id="valor-ferias"></span></p>
+                <p><strong>Dedução: </strong><span id="valor-deducao"></span></p>
+                <p><strong>Salário Líquido: </strong><span id="salario-liquido"></span></p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
+            <li class="menu__item"><a class="menu__link" href="equipa.html">Equipa</a></li>
+        </ul>
+        <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+    </footer>
+
+    <!-- JavaScript para abrir e fechar o menu -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        // Abre e fecha o menu lateral
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+
+        // Função para calcular o salário
+        function calcularSalario() {
+            // Pega os valores de entrada
+            const salarioHora = parseFloat(document.getElementById("salario-hora").value);
+            const horasTrabalhadas = parseFloat(document.getElementById("horas-trabalhadas").value);
+            const horasExtras = parseFloat(document.getElementById("horas-extras").value) || 0;
+            const valorHoraExtra = parseFloat(document.getElementById("valor-hora-extra").value) || 0;
+            const percentualFerias = parseFloat(document.getElementById("salario-ferias").value) || 0;
+            const percentualDeducao = parseFloat(document.getElementById("deducao").value);
+
+            // Valida se os campos foram preenchidos corretamente
+            if (isNaN(salarioHora) || isNaN(horasTrabalhadas) || isNaN(percentualDeducao)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            // Calculando o Salário Bruto
+            const salarioBruto = salarioHora * horasTrabalhadas;
+
+            // Calculando as Horas Extras
+            const horasExtrasValor = horasExtras * valorHoraExtra;
+
+            // Calculando o Adicional de Férias
+            const adicionalFerias = salarioBruto * (percentualFerias / 100);
+
+            // Calculando a dedução
+            const deducao = salarioBruto * (percentualDeducao / 100);
+
+            // Calculando o Salário Líquido
+            const salarioLiquido = salarioBruto + horasExtrasValor + adicionalFerias - deducao;
+
+            // Mostrando os resultados
+            const resultadoSalario = document.getElementById("resultado-salario");
+            const salarioBrutoElem = document.getElementById("salario-bruto");
+            const horasExtrasElem = document.getElementById("valor-horas-extras");
+            const adicionalFeriasElem = document.getElementById("valor-ferias");
+            const deducaoElem = document.getElementById("valor-deducao");
+            const salarioLiquidoElem = document.getElementById("salario-liquido");
+
+            const passo1 = document.getElementById("passo1");
+            const passo2 = document.getElementById("passo2");
+            const passo3 = document.getElementById("passo3");
+            const passo4 = document.getElementById("passo4");
+            const passo5 = document.getElementById("passo5");
+
+            // Passo 1: Calculando o salário bruto
+            passo1.innerHTML = `Salário Bruto = ${salarioHora} × ${horasTrabalhadas} = ${salarioBruto.toFixed(2)}`;
+
+            // Passo 2: Calculando as horas extras
+            passo2.innerHTML = `Horas Extras = ${horasExtras} × ${valorHoraExtra} = ${horasExtrasValor.toFixed(2)}`;
+
+            // Passo 3: Calculando o adicional de férias
+            passo3.innerHTML = `Adicional de Férias = ${salarioBruto.toFixed(2)} × ${percentualFerias}% = ${adicionalFerias.toFixed(2)}`;
+
+            // Passo 4: Calculando a dedução
+            passo4.innerHTML = `Dedução = ${salarioBruto.toFixed(2)} × ${percentualDeducao}% = ${deducao.toFixed(2)}`;
+
+            // Passo 5: Calculando o salário líquido
+            passo5.innerHTML = `Salário Líquido = ${salarioBruto.toFixed(2)} + ${horasExtrasValor.toFixed(2)} + ${adicionalFerias.toFixed(2)} - ${deducao.toFixed(2)} = ${salarioLiquido.toFixed(2)}`;
+
+            // Exibindo o resultado final
+            salarioBrutoElem.innerHTML = `${salarioBruto.toFixed(2)} €`;
+            horasExtrasElem.innerHTML = `${horasExtrasValor.toFixed(2)} €`;
+            adicionalFeriasElem.innerHTML = `${adicionalFerias.toFixed(2)} €`;
+            deducaoElem.innerHTML = `${deducao.toFixed(2)} €`;
+            salarioLiquidoElem.innerHTML = `${salarioLiquido.toFixed(2)} €`;
+
+            // Tornando a área de resultado visível
+            resultadoSalario.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

@@ -13,14 +13,16 @@
     <button class="menu-toggle" id="menu-toggle">☰</button>
 
     <!-- Menu lateral -->
-    <!-- Menu lateral -->
     <nav class="sidebar-menu" id="sidebar-menu">
-        <!-- Ícone do menu -->
         <div class="menu-icon">
             Menu
         </div>
-        <!-- Lista de itens -->
         <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
             <li class="sidebar-menu__item">
                 <a href="simples.html" class="sidebar-menu__link">
                     <button>Juros Simples</button>
@@ -41,10 +43,14 @@
                     <button>Crédito à Habitação</button>
                 </a>
             </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
         </ul>
     </nav>
     
-
     <script>
         // Script para alternar a visibilidade do menu
         const menuToggle = document.getElementById("menu-toggle");
@@ -54,15 +60,13 @@
             sidebarMenu.classList.toggle("open");
         });
     </script>
-</body>
-
 
     <!-- Conteúdo principal -->
     <div class="container main-content">
         <header>
-            <h1>Juros e Crédito</h1>
+            <h1>Matématica No Dia a Dia</h1>
             <p class="intro-text">
-                Aqui você encontra informações sobre Juros Simples, Compostos, Crédito à Habitação e Crédito Bancário.
+                Aqui você encontra informações sobre Juros Simples, Compostos, Crédito à Habitação, Crédito Bancário e IRS.
             </p>
         </header>
 
@@ -88,9 +92,16 @@
         <!-- Crédito Bancário Section -->
         <section class="content" id="credito-bancario">
             <h2>Crédito Bancário</h2>
-            <p>O crédito bancário é o empréstimo concedido por uma instituição financeira, como bancos, para indivíduos ou empresas. <br>Este crédito pode ser utilizado para diversos fins, como a compra de bens, investimentos, ou até mesmo para cobrir despesas imprevistas.</p>
+            <p>O crédito bancário é o empréstimo concedido por uma instituição financeira, como bancos, para indivíduos ou empresas. Este crédito pode ser utilizado para diversos fins, como a compra de bens, investimentos, ou até mesmo para cobrir despesas imprevistas.</p>
             <p>As condições do crédito bancário, como taxas de juros, prazos de pagamento e limites de crédito, variam de acordo com o perfil do cliente, o tipo de crédito solicitado e a política do banco. Existem diferentes tipos de crédito bancário, como o crédito pessoal, crédito consignado, e o crédito rotativo, cada um com suas características e requisitos específicos.</p>
         </section>
+
+        <!-- IRS Section -->
+        <section class="content" id="irs">
+            <h2>IRS - Imposto de Renda</h2>
+            <p>O Imposto sobre o Rendimento das Pessoas Singulares (IRS) é um imposto sobre os rendimentos dos indivíduos. Ele incide sobre o rendimento anual das pessoas físicas, sendo que a sua taxa varia conforme o nível de rendimento e o tipo de rendimento obtido.</p>
+            <p>O IRS é uma das principais fontes de arrecadação do governo, e o valor que cada pessoa paga é determinado por uma tabela progressiva de taxas. Existem diferentes categorias de rendimentos, como salários, rendimentos de trabalho autônomo, pensões, e mais, e cada um tem suas próprias regras de tributação.</p>
+
     </div>
 
     <!-- Rodapé -->

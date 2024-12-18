@@ -6,45 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juros Simples</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script> <!-- Link to JavaScript file -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">Menu</div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container main-content">
         <header>
             <h1>Juros Simples</h1>
             <p class="intro-text">Nos juros simples, o valor dos juros é calculado apenas sobre o valor inicial (capital) do empréstimo ou investimento. Ou seja, os juros não se acumulam ao longo do tempo.</p>
-
-            <!-- Navigation Menu with boxes -->
-            <!-- Navigation Menu with boxes -->
-<!-- Navigation Menu with boxes -->
-<nav class="menu">
-    <ul class="menu__list">
-        <li class="menu__item left">
-            <a class="menu__link" href="simples.html">
-                <div class="menu__box">Juros Simples</div>
-            </a>
-        </li>
-        <li class="menu__item center">
-            <a class="menu__link" href="compostos.html">
-                <div class="menu__box">Juros Compostos</div>
-            </a>
-        </li>
-        <!-- New link to the Crédito Bancário page -->
-        <li class="menu__item center">
-            <a class="menu__link" href="bancario.html">
-                <div class="menu__box">Crédito Bancário</div>
-            </a>
-        </li>
-        <li class="menu__item center">
-            <a class="menu__link" href="credito.html">
-                <div class="menu__box">Crédito à Habitação</div>
-            </a>
-        </li>
-    </ul>
-</nav>
-
-
         </header>
 
         <section class="content" id="juros-simples">
@@ -62,7 +71,7 @@
                 <li><strong>t</strong> é o tempo de aplicação ou empréstimo (Tempo em períodos).</li>
             </ul>
 
-            <!-- Calculator Section for Juros Simples -->
+            <!-- Calculadora de Juros Simples -->
             <h3>Calculadora de Juros Simples</h3>
             <form id="juros-simples-form">
                 <label for="principal">Valor Principal (P):</label>
@@ -77,8 +86,18 @@
                 <button type="button" onclick="calcularJurosSimples()">Calcular Juros</button>
             </form>
 
-            <div id="resultado-simples">
+            <!-- Resultado -->
+            <div id="resultado-simples" style="display: none;">
+                <h4>Passo a Passo do Cálculo:</h4>
+                <p><strong>Passo 1:</strong> Usar a fórmula dos Juros Simples: <code>I = P × i × t</code></p>
+                <p><strong>Passo 2:</strong> Substituir os valores:</p>
+                <p id="passo2"></p>
+                <p><strong>Passo 3:</strong> Calcular os juros:</p>
+                <p id="passo3"></p>
+                <p><strong>Passo 4:</strong> Calcular o valor total (Principal + Juros):</p>
+                <p id="passo4"></p>
                 <p><strong>Juros Calculados: </strong><span id="juros-simples-resultado"></span></p>
+                <p><strong>Valor Total: </strong><span id="valor-total"></span></p>
             </div>
         </section>
     </div>
@@ -90,7 +109,64 @@
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
-    
+
+    <!-- JavaScript para abrir e fechar o menu -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        // Abre e fecha o menu lateral
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+
+        // Function to calculate Simple Interest (Juros Simples)
+        function calcularJurosSimples() {
+            // Get input values
+            const principal = parseFloat(document.getElementById("principal").value);
+            const taxa = parseFloat(document.getElementById("taxa").value); // Use the value entered by the user, no need to divide by 100 yet
+            const tempo = parseFloat(document.getElementById("tempo").value);
+
+            // Validate if all fields were filled correctly
+            if (isNaN(principal) || isNaN(taxa) || isNaN(tempo)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            // Convert the rate to decimal format
+            const taxaDecimal = taxa / 100;
+
+            // Simple Interest Formula: I = P × i × t
+            const juros = principal * taxaDecimal * tempo;
+            const total = principal + juros;
+
+            // Show the results
+            const resultadoElemento = document.getElementById("juros-simples-resultado");
+            const resultadoConta = document.getElementById("resultado-simples");
+            const valorTotal = document.getElementById("valor-total");
+
+            // Step-by-step explanation
+            const passo2 = document.getElementById("passo2");
+            const passo3 = document.getElementById("passo3");
+            const passo4 = document.getElementById("passo4");
+
+            // Step 2: Substituting the values into the formula
+            passo2.innerHTML = `I = ${principal} × ${taxa}% × ${tempo} anos`;
+
+            // Step 3: Calculating the interest
+            passo3.innerHTML = `Juros = ${principal} × ${taxaDecimal.toFixed(2)} × ${tempo} = ${juros.toFixed(2)}`;
+
+            // Step 4: Calculating the total value
+            passo4.innerHTML = `Valor Total = ${principal} + ${juros.toFixed(2)} = ${total.toFixed(2)}`;
+
+            // Show the calculation
+            resultadoElemento.innerHTML = `${juros.toFixed(2)}`;
+            valorTotal.innerHTML = `${total.toFixed(2)}`;
+
+            // Make the result area visible
+            resultadoConta.style.display = "block";
+        }
+    </script>
 </body>
 
 </html>

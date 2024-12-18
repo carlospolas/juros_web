@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRS - Imposto de Renda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">Menu</div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container main-content">
+        <header>
+            <h1>IRS - Imposto de Renda</h1>
+            <p class="intro-text">O Imposto sobre o Rendimento das Pessoas Singulares (IRS) é um imposto que incide sobre os rendimentos das pessoas em Portugal. Este cálculo depende do rendimento anual, categoria do imposto e deduções.</p>
+        </header>
+
+        <section class="content" id="irs">
+            <h2>O que é o IRS e para que serve?</h2>
+            <p>O IRS (Imposto sobre o Rendimento das Pessoas Singulares) é um imposto pago pelos cidadãos portugueses sobre seus rendimentos anuais. O valor depende de várias variáveis, como o rendimento, a categoria do imposto e as deduções.</p>
+
+            <h3>Calculadora do IRS</h3>
+            <p>Insira o seu rendimento anual, categoria e outras informações para calcular o valor aproximado do IRS a pagar, incluindo possíveis deduções fiscais.</p>
+
+            <!-- Formulário para calcular o IRS -->
+            <form id="irs-form">
+                <label for="rendimento-irs">Rendimento Anual (em €):</label>
+                <input type="number" id="rendimento-irs" name="rendimento-irs" required><br>
+
+                <label for="categoria-irs">Categoria de IRS:</label>
+                <select id="categoria-irs" name="categoria-irs">
+                    <option value="1">Categoria A (Trabalho dependente)</option>
+                    <option value="2">Categoria B (Trabalho independente)</option>
+                    <option value="3">Categoria F (Pensões)</option>
+                </select><br><br>
+
+                <label for="deducoes-educacao">Deduções de Educação (em €):</label>
+                <input type="number" id="deducoes-educacao" name="deducoes-educacao" value=""><br>
+
+                <label for="deducoes-saude">Deduções de Saúde (em €):</label>
+                <input type="number" id="deducoes-saude" name="deducoes-saude" value=""><br>
+
+                <label for="dependentes">Número de Dependentes:</label>
+                <input type="number" id="dependentes" name="dependentes" value=""><br><br>
+
+                <button type="button" onclick="calcularIRS()">Calcular IRS</button>
+            </form>
+
+            <!-- Resultado do cálculo do IRS -->
+            <div id="resultado-irs" style="display:none;">
+                <p><strong>IRS a Pagar: </strong><span id="irs-resultado"></span></p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
+            <li class="menu__item"><a class="menu__link" href="equipa.html">Equipa</a></li>
+        </ul>
+        <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
+    </footer>
+
+    <!-- JavaScript para abrir e fechar o menu -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        // Abre e fecha o menu lateral
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+
+        // Função para calcular IRS
+        function calcularIRS() {
+            const rendimento = parseFloat(document.getElementById("rendimento-irs").value);
+            const categoria = document.getElementById("categoria-irs").value;
+            const deducoesEducacao = parseFloat(document.getElementById("deducoes-educacao").value);
+            const deducoesSaude = parseFloat(document.getElementById("deducoes-saude").value);
+            const dependentes = parseInt(document.getElementById("dependentes").value);
+
+            if (isNaN(rendimento)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            let taxa;
+            let deducoesTotais = deducoesEducacao + deducoesSaude + (dependentes * 1500); // Considerando 1500€ por dependente como exemplo
+
+            // Taxas progressivas do IRS (exemplo simplificado)
+            switch (categoria) {
+                case '1': // Categoria A (Trabalho dependente)
+                    if (rendimento <= 10000) {
+                        taxa = 0.14;
+                    } else if (rendimento <= 20000) {
+                        taxa = 0.23;
+                    } else if (rendimento <= 40000) {
+                        taxa = 0.28;
+                    } else {
+                        taxa = 0.35;
+                    }
+                    break;
+                case '2': // Categoria B (Trabalho independente)
+                    if (rendimento <= 15000) {
+                        taxa = 0.20;
+                    } else if (rendimento <= 30000) {
+                        taxa = 0.30;
+                    } else {
+                        taxa = 0.40;
+                    }
+                    break;
+                case '3': // Categoria F (Pensões)
+                    if (rendimento <= 10000) {
+                        taxa = 0.10;
+                    } else if (rendimento <= 20000) {
+                        taxa = 0.20;
+                    } else {
+                        taxa = 0.30;
+                    }
+                    break;
+                default:
+                    taxa = 0;
+            }
+
+            const impostoBruto = rendimento * taxa;
+            const impostoComDeducoes = impostoBruto - deducoesTotais;
+
+            // Garantir que o imposto não seja negativo
+            const impostoFinal = impostoComDeducoes < 0 ? 0 : impostoComDeducoes;
+
+            const detalhamentoCalculo = `
+                <strong>Cálculo:</strong><br>
+                Rendimento: €${rendimento}<br>
+                Taxa de IRS: ${taxa * 100}%<br>
+                Deduções Totais: €${deducoesTotais.toFixed(2)}<br>
+                <strong>IRS a Pagar:</strong> € ${impostoFinal.toFixed(2)}
+            `;
+
+            const resultadoElemento = document.getElementById("irs-resultado");
+            const resultadoConta = document.getElementById("resultado-irs");
+
+            if (resultadoElemento && resultadoConta) {
+                resultadoElemento.innerHTML = detalhamentoCalculo;
+                resultadoConta.style.display = "block";
+            } else {
+                alert("Erro: Não foi possível encontrar os elementos de resultado.");
+            }
+        }
+    </script>
+</body>
+
+</html>

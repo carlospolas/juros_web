@@ -10,38 +10,50 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">Menu</div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container main-content">
         <header>
             <h1>Crédito Bancário</h1>
             <p class="intro-text">O crédito bancário refere-se a qualquer tipo de empréstimo ou linha de crédito que um banco concede a um cliente, seja para consumo, negócios ou outras necessidades financeiras.</p>
-
-            <!-- Navigation Menu with boxes -->
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__item left">
-                        <a class="menu__link" href="simples.html">
-                            <div class="menu__box">Juros Simples</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="compostos.html">
-                            <div class="menu__box">Juros Compostos</div>
-                        </a>
-                    </li>
-                    <!-- New link to the Crédito Bancário page -->
-                    <li class="menu__item center">
-                        <a class="menu__link" href="bancario.html">
-                            <div class="menu__box">Crédito Bancário</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="credito.html">
-                            <div class="menu__box">Crédito à Habitação</div>
-                        </a>
-                    </li>                   
-                </ul>
-            </nav>
-
         </header>
 
         <section class="content" id="credito-bancario">
@@ -50,10 +62,9 @@
             
             <h3>Exemplo de Como Funciona o Crédito Bancário</h3>
             <p>Num crédito bancário, o cliente solicita um empréstimo ao banco e, se aprovado, o valor é disponibilizado. O cliente compromete-se a pagar o montante emprestado em prestações mensais, acrescidas de juros, ao longo do prazo acordado. O crédito pode ser concedido com taxas de juro fixas ou variáveis, dependendo do contrato.</p>
-
         </section>
-
     </div>
+
     <footer class="footer">
         <ul class="menu">
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
@@ -61,6 +72,18 @@
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
+
+    <!-- JavaScript para abrir e fechar o menu -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        // Abre e fecha o menu lateral
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+    </script>
+
 </body>
 
 </html>

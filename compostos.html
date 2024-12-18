@@ -6,44 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juros Compostos</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script> <!-- Link to JavaScript file -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
+    <!-- Botão para abrir o menu lateral -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">
+            Menu
+        </div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container main-content">
         <header>
             <h1>Juros Compostos</h1>
             <p class="intro-text">Nos juros compostos, os juros são calculados sobre o valor inicial (capital) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
-
-           <!-- Navigation Menu with boxes -->
-<!-- Navigation Menu with boxes -->
-<nav class="menu">
-    <ul class="menu__list">
-        <li class="menu__item left">
-            <a class="menu__link" href="simples.html">
-                <div class="menu__box">Juros Simples</div>
-            </a>
-        </li>
-        <li class="menu__item center">
-            <a class="menu__link" href="compostos.html">
-                <div class="menu__box">Juros Compostos</div>
-            </a>
-        </li>
-        <!-- New link to the Crédito Bancário page -->
-        <li class="menu__item center">
-            <a class="menu__link" href="bancario.html">
-                <div class="menu__box">Crédito Bancário</div>
-            </a>
-        </li>
-        <li class="menu__item center">
-            <a class="menu__link" href="credito.html">
-                <div class="menu__box">Crédito à Habitação</div>
-            </a>
-        </li>
-    </ul>
-</nav>
-
-
         </header>
 
         <!-- Juros Compostos Section -->
@@ -62,40 +74,34 @@
                 <li><strong>t</strong> é o tempo de aplicação ou empréstimo (Tempo em períodos).</li>
             </ul>
 
-<!-- Juros Compostos Section -->
-<section class="content" id="juros-compostos">
-    <h2>Juros Compostos</h2>
-    <p>Nos juros compostos, os juros são calculados sobre o valor inicial (capital) mais os juros acumulados nos períodos anteriores. Ou seja, os juros geram novos juros, o que faz com que o montante cresça de forma exponencial.</p>
+            <!-- Calculator Form -->
+            <h3>Calculadora de Juros Compostos</h3>
+            <form id="juros-compostos-form">
+                <label for="principal-compostos">Valor Principal (P):</label>
+                <input type="number" id="principal-compostos" name="principal-compostos" required><br>
 
-    <!-- Calculator Form -->
-    <h3>Calculadora de Juros Compostos</h3>
-    <form id="juros-compostos-form">
-        <label for="principal-compostos">Valor Principal (P):</label>
-        <input type="number" id="principal-compostos" name="principal-compostos" required><br>
+                <label for="taxa-compostos">Taxa de Juros (%):</label>
+                <input type="number" id="taxa-compostos" name="taxa-compostos" required><br>
 
-        <label for="taxa-compostos">Taxa de Juros (%):</label>
-        <input type="number" id="taxa-compostos" name="taxa-compostos" required><br>
+                <label for="tempo-compostos">Tempo:</label>
+                <input type="number" id="tempo-compostos" name="tempo-compostos" required><br>
 
-        <label for="tempo-compostos">Tempo:</label>
-        <input type="number" id="tempo-compostos" name="tempo-compostos" required><br>
+                <label for="periodo-compostos">Período de Capitalização:</label>
+                <select id="periodo-compostos">
+                    <option value="mensal">Mensal</option>
+                    <option value="trimestral">Trimestral</option>
+                    <option value="semestral">Semestral</option>
+                    <option value="anual">Anual</option>
+                </select><br><br>
 
-        <label for="periodo-compostos">Período de Capitalização:</label>
-        <select id="periodo-compostos">
-            <option value="mensal">Mensal</option>
-            <option value="trimestral">Trimestral</option>
-            <option value="semestral">Semestral</option>
-            <option value="anual">Anual</option>
-        </select><br><br>
+                <button type="button" onclick="calcularJurosCompostos()">Calcular Montante</button>
+            </form>
 
-        <button type="button" onclick="calcularJurosCompostos()">Calcular Montante</button>
-    </form>
-
-    <!-- Result Section -->
-    <div id="resultado-compostos" style="display:none;">
-        <p><strong>Montante Final (M): </strong><span id="juros-compostos-resultado"></span></p>
-    </div>
-</section>
-
+            <!-- Result Section -->
+            <div id="resultado-compostos" style="display:none;">
+                <p><strong>Montante Final (M): </strong><span id="juros-compostos-resultado"></span></p>
+            </div>
+        </section>
     </div>
 
     <footer class="footer">
@@ -106,6 +112,58 @@
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
 
+    <!-- JavaScript para o menu lateral -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+        
+        // Função para calcular Juros Compostos
+        function calcularJurosCompostos() {
+            const principal = parseFloat(document.getElementById("principal-compostos").value);
+            const taxa = parseFloat(document.getElementById("taxa-compostos").value) / 100;
+            const tempo = parseFloat(document.getElementById("tempo-compostos").value);
+            const periodo = document.getElementById("periodo-compostos").value;
+
+            if (isNaN(principal) || isNaN(taxa) || isNaN(tempo)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            let n;
+            switch (periodo) {
+                case 'mensal': n = 12; break;
+                case 'trimestral': n = 4; break;
+                case 'semestral': n = 2; break;
+                case 'anual': n = 1; break;
+                default: n = 1;
+            }
+
+            const t = tempo * n;
+            const montante = principal * Math.pow(1 + taxa / n, t);
+            const juros = montante - principal;
+
+            const detalhamentoCalculo = ` 
+                <strong>Fórmula:</strong> M = P × (1 + i/n)<sup>n × t</sup> <br>
+                <strong>Cálculo:</strong> ${principal} × (1 + ${taxa}/${n})<sup>${n} × ${tempo}</sup> <br>
+                <strong>Juros Calculados:</strong> ${juros.toFixed(2)} <br>
+                <strong>Montante Final (M):</strong> € ${montante.toFixed(2)} (Principal + Juros)
+            `;
+
+            const resultadoElemento = document.getElementById("juros-compostos-resultado");
+            const resultadoConta = document.getElementById("resultado-compostos");
+
+            if (resultadoElemento && resultadoConta) {
+                resultadoElemento.innerHTML = detalhamentoCalculo;
+                resultadoConta.style.display = "block";
+            } else {
+                alert("Erro: Não foi possível encontrar os elementos de resultado.");
+            }
+        }
+    </script>
 </body>
 
 </html>

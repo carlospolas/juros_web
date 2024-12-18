@@ -10,44 +10,62 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Botão para abrir o menu -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu lateral -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+        <div class="menu-icon">Menu</div>
+        <ul class="sidebar-menu__list">
+            <li class="sidebar-menu__item">
+                <a href="salarios.html" class="sidebar-menu__link">
+                    <button>Matemática nos Salários</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="simples.html" class="sidebar-menu__link">
+                    <button>Juros Simples</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="compostos.html" class="sidebar-menu__link">
+                    <button>Juros Compostos</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="bancario.html" class="sidebar-menu__link">
+                    <button>Crédito Bancário</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="credito.html" class="sidebar-menu__link">
+                    <button>Crédito à Habitação</button>
+                </a>
+            </li>
+            <li class="sidebar-menu__item">
+                <a href="irs.html" class="sidebar-menu__link">
+                    <button>IRS</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container main-content">
         <header>
             <h1>Crédito à Habitação</h1>
-            <p class="intro-text">O crédito à habitação é uma linha de crédito destinada à compra de imóvel, e pode ter diferentes condições, incluindo taxas de juro fixas ou variáveis, e prazos longos de pagamento.</p>
-
-            <!-- Navigation Menu with boxes -->
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__item left">
-                        <a class="menu__link" href="simples.html">
-                            <div class="menu__box">Juros Simples</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="compostos.html">
-                            <div class="menu__box">Juros Compostos</div>
-                        </a>
-                    </li>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="bancario.html">
-                            <div class="menu__box">Crédito Bancário</div>
-                        </a>
-                    <li class="menu__item center">
-                        <a class="menu__link" href="credito.html">
-                            <div class="menu__box">Crédito à Habitação</div>
-                        </a>
-                   
-                    </li>
-                </ul>
-            </nav>
+            <p class="intro-text">
+                O crédito à habitação é uma linha de crédito destinada à compra de imóvel, e pode ter diferentes
+                condições, incluindo taxas de juro fixas ou variáveis, e prazos longos de pagamento.
+            </p>
         </header>
 
         <section class="content" id="credito-habitacao">
             <h2>O que é Crédito à Habitação?</h2>
-            <p>O crédito à habitação é um tipo de financiamento oferecido pelos bancos para a compra de imóveis. O empréstimo pode ser utilizado tanto para a aquisição da casa própria como para a construção ou remodelação de um imóvel. As condições variam dependendo do banco, como a taxa de juro, prazos de pagamento e a possibilidade de amortização antecipada.</p>
-            
-            <h3>Exemplo de Como Funciona o Crédito à Habitação</h3>
-            <p>Num crédito à habitação, a instituição financeira empresta uma quantia ao cliente, e o cliente paga prestações mensais de acordo com o valor do empréstimo, a taxa de juro e o prazo do contrato. As taxas de juro podem ser fixas ou variáveis, o que pode influenciar o valor da prestação durante o período de pagamento.</p>
+            <p>O crédito à habitação é um tipo de financiamento oferecido pelos bancos para a compra de imóveis. O
+                empréstimo pode ser utilizado tanto para a aquisição da casa própria como para a construção ou
+                remodelação de um imóvel. As condições variam dependendo do banco, como a taxa de juro, prazos de
+                pagamento e a possibilidade de amortização antecipada.</p>
 
             <h3>Calculadora de Crédito à Habitação</h3>
             <form id="credito-habitacao-form">
@@ -61,28 +79,18 @@
                 <input type="number" id="prazo" name="prazo" required><br>
 
                 <label for="entrada">Entrada (€):</label>
-                <input type="number" id="entrada" name="entrada"><br>
+                <input type="number" id="entrada" name="entrada"><br><br>
 
-                <label for="tipo-juros">Tipo de Juros:</label>
-                <select id="tipo-juros">
-                    <option value="fixo">Fixo</option>
-                    <option value="variavel">Variável</option>
-                </select><br>
-
-                <label for="prestacao">Tipo de Pagamento:</label>
-                <select id="prestacao">
-                    <option value="principal">Principal + Juros</option>
-                    <option value="somente-juros">Somente Juros</option>
-                </select><br><br>
-
-                <button type="button" onclick="calcularCreditoHabitaçao()">Calcular Prestação</button>
+                <button type="button" onclick="calcularCreditoHabitacao()">Calcular Prestação</button>
             </form>
 
             <div id="resultado-credito">
                 <p><strong>Prestação Mensal (€): </strong><span id="parcela-credito-resultado"></span></p>
+                <div id="passo-a-passo"></div>
             </div>
         </section>
     </div>
+
     <footer class="footer">
         <ul class="menu">
             <li class="menu__item"><a class="menu__link" href="index.html">Início</a></li>
@@ -90,6 +98,63 @@
         </ul>
         <p>&copy;2024 Carlos Soares | Trabalho realizado no âmbito da disciplina de Matemática</p>
     </footer>
+
+    <!-- Script para alternar a visibilidade do menu -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebarMenu = document.getElementById("sidebar-menu");
+
+        menuToggle.addEventListener("click", () => {
+            sidebarMenu.classList.toggle("open");
+        });
+
+        // Script para a calculadora de crédito à habitação
+        function calcularCreditoHabitacao() {
+            const valorCredito = parseFloat(document.getElementById("valor-credito").value) || 0;
+            const taxaJuros = parseFloat(document.getElementById("taxa-juros").value) || 0;
+            const prazo = parseFloat(document.getElementById("prazo").value) || 0;
+            const entrada = parseFloat(document.getElementById("entrada").value) || 0;
+
+            if (valorCredito <= 0 || taxaJuros <= 0 || prazo <= 0) {
+                alert("Por favor, insira valores válidos para o cálculo.");
+                return;
+            }
+
+            // Ajuste do valor do crédito subtraindo a entrada
+            const valorFinanciado = valorCredito - entrada;
+
+            if (valorFinanciado <= 0) {
+                alert("O valor da entrada não pode ser maior ou igual ao valor do crédito.");
+                return;
+            }
+
+            // Cálculo da taxa de juros mensal
+            const taxaJurosMensal = taxaJuros / 12 / 100;
+
+            // Número total de prestações
+            const totalPrestacoes = prazo * 12;
+
+            // Fórmula para cálculo da prestação mensal (sistema francês)
+            const prestacaoMensal = (valorFinanciado * taxaJurosMensal) / 
+                                    (1 - Math.pow(1 + taxaJurosMensal, -totalPrestacoes));
+
+            // Exibir o resultado da prestação
+            document.getElementById("parcela-credito-resultado").textContent = prestacaoMensal.toFixed(2);
+
+            // Mostrar o passo a passo
+            const passoAPasso = ` 
+                <h4>Passo a Passo:</h4>
+                <ul>
+                    <li><strong>Valor Financiado:</strong> ${valorFinanciado.toFixed(2)} € (Valor do crédito - Entrada)</li>
+                    <li><strong>Taxa de Juros Mensal:</strong> ${(taxaJurosMensal * 100).toFixed(4)}% (Taxa de juros anual / 12)</li>
+                    <li><strong>Número Total de Prestações:</strong> ${totalPrestacoes} meses (${prazo} anos x 12 meses)</li>
+                    <li><strong>Fórmula:</strong> (Valor Financiado × Taxa de Juros Mensal) ÷ (1 - (1 + Taxa de Juros Mensal)^-Número de Prestações)</li>
+                    <li><strong>Resultado:</strong> ${prestacaoMensal.toFixed(2)} € por mês</li>
+                </ul>
+            `;
+            document.getElementById("passo-a-passo").innerHTML = passoAPasso;
+        }
+    </script>
 </body>
 
 </html>
